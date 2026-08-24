@@ -33,6 +33,25 @@ public class HomeHandler implements HttpHandler {
             
             """;
 
+    private static final String NotFoundRoute = """
+            <!doctype html>
+            <html lang="ko">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>NotFoundAddress</title>
+              </head>
+              <body>
+                <h1 style='color:blue'>[404]NotFoundRoute</h1>
+                <ul>
+                  <li><a href="/health">서버 상태 확인</a></li>
+                  <li><a href="/api/users">사용자 목록(JSON)</a></li>
+                </ul>
+              </body>
+            </html>
+            
+            """;
+
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         try {
@@ -43,7 +62,7 @@ public class HomeHandler implements HttpHandler {
             String path = exchange.getRequestURI().getPath();
             if (!path.equals("/")) {
                 SimpleHttpServer.sendResponse(exchange, 404,
-                        SimpleHttpServer.TYPE_TEXT, "404 Not Found : " + path);
+                        "text/html; charset=UTF-8", NotFoundRoute);
                 return;
             }
             // Content-Type 을 text/html 로 보내야 브라우저야 HTML 로 해석한다.

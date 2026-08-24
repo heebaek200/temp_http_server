@@ -67,7 +67,7 @@ public class SimpleHttpServer {
         server.createContext("/", new HomeHandler());
         // - http://localhost:8080/health
         server.createContext("/health", new HealthHandler());
-        // - http://localhost:8080/
+        // - http://localhost:8080/api/users
         server.createContext("/api/users", new UserApiHandler());
 
 
