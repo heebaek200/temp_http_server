@@ -1,18 +1,13 @@
 package server;
 
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
+import lombok.Data;
 
-import java.io.IOException;
+@Data
+public class Fortune {
+    private int fortuneId;
+    String fortune;
 
-public class Fortune implements HttpHandler {
-
-//내용 : 오늘의 운세를 무작위 출력
-    @Override
-    public void handle(HttpExchange exchange) throws IOException {
-
-
-
+    public Fortune(String fortune) {
+        this.fortune = fortune;
     }
 }
-
