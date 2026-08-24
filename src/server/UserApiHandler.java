@@ -225,7 +225,10 @@ public class UserApiHandler implements HttpHandler {
                 """;
 
         // 예쁜 출력 방식의 gson 라이브러리 사용
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .disableHtmlEscaping() // Gson의 \u003c 변환 비활성화 (자동 변환으로 출력하면 html태그가 문자열 자체로 출력되지 않음)
+                .create();
 
         // user 리스트를 JSON 형식 문자열로 변환
         String userListJson = gson.toJson(copyUserList());
