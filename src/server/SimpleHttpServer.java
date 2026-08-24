@@ -70,7 +70,7 @@ public class SimpleHttpServer {
         // - http://localhost:8080/api/users
         server.createContext("/api/users", new UserApiHandler());
         // - http://localhost:8080/api/fortune
-        server.createContext("/api/fortune", new UserApiHandler());
+        server.createContext("/api/fortune", new FortuneApiHandler());
 
 
 
