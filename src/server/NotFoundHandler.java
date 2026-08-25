@@ -44,6 +44,7 @@ public class NotFoundHandler implements HttpHandler {
             if (!path.equals("/")) {
                 SimpleHttpServer.sendResponse(exchange, 404,
                         SimpleHttpServer.TYPE_TEXT, "404 Not Found : " + NotFoundHOME_PAGE);
+
                 return;
             }
 
