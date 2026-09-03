@@ -1,0 +1,83 @@
+*{margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+.profile{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #2A4BB3;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.profile-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #203781;
+    padding: 10px 30px;
+    margin-bottom: 12px;
+    
+}
+.profile-header-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #C4C4C4;
+    font-size: 8px;
+}
+
+.profile-header-img{
+    width: 50px;
+}
+
+.profile-screen{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    height: 200px;
+    padding: 0 20px;
+    background-color: #373740;
+    border: 10px solid #252529;
+    border-radius: 10PX;
+    margin-bottom: 10px;
+ align-items: center;
+}
+.profile-screen-img {
+    width: 100px;
+}
+.profile-screen-popup {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+    width: 100%;
+    font-size: 13px;
+    background-color:#D6D6D6 ;
+    border-radius: 10px 10px 0 0;
+}
+
+.profile-contact-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.profile-contact-button button {
+    background-color:#44ac9e ;
+    border: none;
+    border-bottom: 5px solid #167062;
+    
+}
+
+.profile-contact-img{
+    width: 20px;
+
+}
