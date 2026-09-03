@@ -29,11 +29,148 @@
       <!-- B 담당 끝 -->
 
       <!-- C 담당 시작 -->
-      <section id="panels" class="panels">
-        <!-- 콘텐츠 패널 영역 -->
-        콘텐츠 패널 영역
+      <section id="panels" class="panels" aria-labelledby="panels-title">
+        <!-- 왼쪽 영역 -->
+        <div class="panel-column panel-column--left">
+          <!-- 위쪽 가로형 패널 -->
+          <article class="panel-card panel-card--top" data-panel="top">
+            <div class="panel-door panel-door--left"></div>
+            <div class="panel-door panel-door--right"></div>
+
+            <button
+              type="button"
+              class="panel-info-button"
+              aria-label="위쪽 패널 안내"
+            >
+              ⓘ
+            </button>
+
+            <button
+              type="button"
+              class="panel-lock-button"
+              aria-label="위쪽 패널 잠김"
+              aria-disabled="true"
+            >
+              🔒︎
+            </button>
+
+            <div class="panel-content" hidden>
+              <!-- 잠금 해제 후 콘텐츠 영역 -->
+            </div>
+          </article>
+
+          <!-- 가운데 큰 가로형 패널 -->
+          <article class="panel-card panel-card--main" data-panel="main">
+            <div class="panel-door panel-door--left"></div>
+            <div class="panel-door panel-door--right"></div>
+
+            <button
+              type="button"
+              class="panel-info-button"
+              aria-label="가운데 패널 안내"
+            >
+              ⓘ
+            </button>
+
+            <button
+              type="button"
+              class="panel-lock-button"
+              aria-label="가운데 패널 잠김"
+              aria-disabled="true"
+            >
+              🔒︎
+            </button>
+
+            <div class="panel-content" hidden>
+              <!-- 잠금 해제 후 콘텐츠 영역 -->
+            </div>
+          </article>
+
+          <!-- 아래쪽 패널 묶음 -->
+          <div class="panel-row">
+            <article class="panel-card panel-card--small" data-panel="small-left">
+              <div class="panel-door panel-door--left"></div>
+              <div class="panel-door panel-door--right"></div>
+
+              <button
+                type="button"
+                class="panel-info-button"
+                aria-label="아래쪽 왼쪽 패널 안내"
+              >
+                ⓘ
+              </button>
+
+              <button
+                type="button"
+                class="panel-lock-button"
+                aria-label="아래쪽 왼쪽 패널 잠김"
+                aria-disabled="true"
+              >
+                🔒︎
+              </button>
+
+              <div class="panel-content" hidden>
+                <!-- 잠금 해제 후 콘텐츠 영역 -->
+              </div>
+            </article>
+
+            <article class="panel-card panel-card--small" data-panel="small-right">
+              <div class="panel-door panel-door--left"></div>
+              <div class="panel-door panel-door--right"></div>
+
+              <button
+                type="button"
+                class="panel-info-button"
+                aria-label="아래쪽 오른쪽 패널 안내"
+              >
+                ⓘ
+              </button>
+
+              <button
+                type="button"
+                class="panel-lock-button"
+                aria-label="아래쪽 오른쪽 패널 잠김"
+                aria-disabled="true"
+              >
+                🔒︎
+              </button>
+
+              <div class="panel-content" hidden>
+                <!-- 잠금 해제 후 콘텐츠 영역 -->
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- 오른쪽 영역 -->
+        <div class="panel-column panel-column--right">
+          <article class="panel-card panel-card--tall" data-panel="tall">
+            <div class="panel-door panel-door--left"></div>
+            <div class="panel-door panel-door--right"></div>
+
+            <button
+              type="button"
+              class="panel-info-button"
+              aria-label="오른쪽 세로형 패널 안내"
+            >
+              ⓘ
+            </button>
+
+            <button
+              type="button"
+              class="panel-lock-button"
+              aria-label="오른쪽 세로형 패널 잠김"
+              aria-disabled="true"
+            >
+              🔒︎
+            </button>
+
+            <div class="panel-content" hidden>
+              <!-- 잠금 해제 후 콘텐츠 영역 -->
+            </div>
+          </article>
+        </div>
       </section>
-      <!-- C 담당 끝 -->
     </main>
   </div>
 
