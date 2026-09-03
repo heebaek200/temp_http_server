@@ -1,0 +1,308 @@
+/* 전체 콘텐츠 영역 */
+.panels {
+  display: flex;
+  gap: 14px;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 650px;
+}
+
+/* 왼쪽 열과 오른쪽 열 */
+.panel-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  min-width: 0;
+}
+
+.panel-column--left {
+  flex: 3;
+}
+
+.panel-column--right {
+  flex: 2;
+}
+
+/* 위쪽 패널 */
+.panel-card--top {
+  flex: 0 0 150px;
+}
+
+/* 가운데 패널 */
+.panel-card--main {
+  flex: 1;
+  min-height: 280px;
+}
+
+/* 아래쪽 패널 묶음 */
+.panel-row {
+  display: flex;
+  flex: 0 0 170px;
+  gap: 14px;
+
+  min-width: 0;
+}
+
+/* 아래쪽의 작은 패널 */
+.panel-card--small {
+  flex: 1;
+}
+
+/* 오른쪽 긴 패널 */
+.panel-card--tall {
+  flex: 1;
+}
+
+/* 공통 패널 */
+.panel-card {
+  position: relative;
+
+  display: flex;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+
+  background-color: #252530;
+  border: 1px solid #1a1a23;
+  border-radius: 14px;
+  box-shadow: 0 0px 2px 2.5px rgba(0, 0, 0, 0.25);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* CLICK TO OPEN 문구 */
+.panel-card::after {
+  content: "CLICK TO OPEN";
+
+  position: absolute;
+  top: 19px;
+  right: 50px;
+  z-index: 2;
+
+  color: #a5a5ad;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 0.25s ease;
+}
+
+.panel-card:hover::after {
+  clip-path: inset(0 0 0 0);
+}
+
+/* 패널 Hover */
+.panel-card:hover {
+  border-color: #dcdcdd;
+}
+
+.panel-card:hover::after {
+  clip-path: inset(0 0 0 0);
+}
+
+.panel-card:hover .panel-door {
+  background-color: #292934;
+}
+
+.panel-card:hover .panel-info-button {
+  color: #a5a5ad;
+}
+
+/* 양쪽 문 */
+.panel-door {
+  position: relative;
+
+  flex: 1;
+
+  min-width: 0;
+  min-height: 100%;
+
+  background-color: #252530;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 12px,
+    rgb(255 255 255 / 3%) 12px,
+    rgb(255 255 255 / 3%) 14px
+  );
+
+  transition: background-color 0.2s ease;
+}
+
+.panel-card:hover .temp-panel-door {
+  background-color: #292934;
+}
+
+/* 문 사이의 선 */
+.panel-door--left {
+  border-right: 1px solid #191922;
+}
+
+.panel-door--right {
+  border-left: 1px solid #30303b;
+}
+
+/* 위쪽 나사 */
+.panel-door::before {
+  content: "";
+
+  position: absolute;
+  top: 11px;
+
+  width: 7px;
+  height: 7px;
+
+  background-color: #171720;
+  border-radius: 50%;
+}
+
+.panel-door--left::before {
+  left: 11px;
+}
+
+.panel-door--right::before {
+  right: 11px;
+}
+
+/* 아래쪽 나사 */
+.panel-door::after {
+  content: "";
+
+  position: absolute;
+  bottom: 11px;
+
+  width: 7px;
+  height: 7px;
+
+  background-color: #171720;
+  border-radius: 50%;
+}
+
+.panel-door--left::after {
+  left: 11px;
+}
+
+.panel-door--right::after {
+  right: 11px;
+}
+
+/* 잠금 버튼 */
+.panel-lock-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  width: clamp(48px, 5vw, 80px);
+  aspect-ratio: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  font-size: clamp(16px, 1.5vw, 22px);
+
+  color: #daa520;
+  background-color: #24242e;
+  border: 2px solid #1a1a23;
+  border-radius: 50%;
+  box-shadow:
+    0 7px 0 #171720,
+    0 9px 16px rgb(0 0 0 / 20%);
+
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+
+  transition:
+    top 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    color 0.15s ease;
+}
+
+.panel-card:hover .panel-lock-button {
+  top: calc(50% + 5px);
+
+  color: white;
+  background-color: #2d2d38;
+  box-shadow: none;
+}
+
+/* 안내 버튼 */
+.panel-info-button {
+  position: absolute;
+  top: 17px;
+  right: 17px;
+  z-index: 2;
+
+  padding: 0;
+
+  color: #787884;
+  font-size: 18px;
+
+  background-color: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+/* 잠금 해제 후 콘텐츠 */
+.panel-content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  padding: 24px;
+
+  color: #d6d6dc;
+  background-color: #252530;
+}
+
+/* 화면 폭이 좁아질 때 */
+@media (max-width: 1024px) {
+  .panels {
+    flex-direction: column;
+
+    min-height: 0;
+  }
+
+  .panel-column--left,
+  .panel-column--right {
+    flex: none;
+  }
+
+  .panel-card--top {
+    min-height: 150px;
+  }
+
+  .panel-card--main {
+    min-height: 280px;
+  }
+
+  .panel-card--tall {
+    min-height: 320px;
+  }
+}
+
+/* 모바일 화면 */
+@media (max-width: 768px) {
+  .panel-row {
+    flex-direction: column;
+    flex-basis: auto;
+  }
+
+  .panel-card--small {
+    flex: none;
+
+    min-height: 180px;
+  }
+}
