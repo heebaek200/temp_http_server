@@ -1,0 +1,272 @@
+/* 전역 리셋 */
+*{margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+
+/* 프로필 카드 전체 컨테이너 */
+.profile{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    background-color: #2A4BB3;
+    border-radius: 10px;
+    align-items: center;
+}
+
+
+/* 헤더: 이름 + 로고 아이콘 */
+.profile-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #203781;
+    padding: 10px 30px;
+    margin-bottom: 12px;
+
+}
+.profile-header-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #C4C4C4;
+    font-size: 8px;
+}
+
+.profile-header-img{
+    width: 50px;
+}
+
+/* 스크린: 캐릭터 이미지 + 팝업 */
+.profile-screen{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: stretch;
+    margin: 0 15px;
+    height: 200px;
+    padding: 0 20px;
+    background-color: #373740;
+    border: 10px solid #252529;
+    border-radius: 10PX;
+    margin-bottom: 10px;
+ align-items: center;
+}
+.profile-screen-img {
+    width: 100px;
+}
+.profile-screen-popup {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    right: 0;
+    height: 40px;
+    font-weight: bold;
+    width: 100%;
+    font-size: 13px;
+    background-color:#D6D6D6 ;
+    border-radius: 10px 10px 0 0;
+}
+
+/* CONTACT ME 버튼 */
+.profile-contact-button {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    margin: 0 15px;
+    border-radius: 10px;
+    background-color: #213E9A;
+    margin-bottom: 10px;
+}
+.profile-contact-button button {
+    flex: 1;
+    color: #167062;
+    font-weight: bold;
+    font-size: 16px;
+    background-color:#44ac9e ;
+    border: none;
+    border-bottom: 5px solid #167062;
+    height: 40px;
+    border-radius: 5px;
+
+}
+.profile-contact-img-box {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    rgba(0, 0, 0, 0.15) 9px,
+    transparent 5px,
+    transparent 15px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-contact-img{
+    display: inline;
+    width: 20px;
+     height: 20px;
+     /* 원래 색 #213E9A  */
+     background-color: #2b4fc5;
+    -webkit-mask: url("../assets/images/b-1.png") center / contain no-repeat;
+    mask: url("../assets/images/b-1.png") center / contain no-repeat;
+}
+
+/* Face customizer: 안내 문구 영역 */
+.profile-customizer{
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    margin: 0 15px;
+    padding: 10px;
+    background-color: #213E9A;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.profile-customizer-header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4259A2;
+}
+
+.profile-customizer-header-box{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+}
+
+.profile-customizer-img{
+    width: 30px;
+    height: 30px;
+    background-color: #4259A2;
+    -webkit-mask: url("../assets/images/b2.png") center / contain no-repeat;
+    mask: url("../assets/images/b2.png") center / contain no-repeat;
+}
+
+.profile-customizer-header p {
+    font-weight: bold;
+    color: #536CBB;
+    font-size: 13px;
+}
+
+.profile-customizer-bar{
+    flex: 1;
+    height: 3px;
+    background-color: #2A4BB3;
+}
+
+/* 스위치 항목 목록: 좌우 이동 버튼 + 라벨 + 꾸밈용 점 */
+.profile-switch-button-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+.profile-switch-button{
+    width: 100%;
+    height: 70px;
+    background-color: #2A4BB3;
+    display: flex;
+    color: #C4C4C4;
+    padding: 10px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-switch{
+    display: flex;
+    width: 60px;
+    height: 40px;
+    background-color: #213E9A;
+    border-radius: 30px;
+    padding: 5px;
+    align-items:center;
+    justify-content: start;
+}
+.profile-switch-thumb {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #536CBB;
+}
+
+.profile-button-label{
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.profile-switch-deco {
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.profile-switch-dot{
+    width: 6px;
+    height: 6px;
+    background-color: #213E9A;
+    border-radius: 50%;
+}
+
+/* 하단 블랙 바 */
+.profile-black-bar {
+
+        align-self: stretch;
+        margin: 5px 40px 0px 40px;
+
+    height: 40px;
+    background-color: #25252F;
+    border-radius: 10px 10px 0 0;
+}
+
+.profile-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 85%);
+  pointer-events: none;
+}
+
+.profile-screen-img{
+    cursor: pointer;
+    transition: transform 0.2 ease;
+}
+.profile-screen-img:hover{
+    transform: scale(1.1);
+}
+
+
+.profile-contact-button button{
+    cursor: pointer;
+     transition: transform 0.2 ease;
+
+}
+.profile-contact-button button:hover{
+    border: none;
+}
+
+.profile-switch-button{
+    cursor: pointer;
+    transition: background-color 0.2 ease;
+}
+.profile-switch-button:hover{
+    background-color: #1B306F ;
+}
