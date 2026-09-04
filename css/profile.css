@@ -5,11 +5,19 @@
 
 /* 프로필 카드 전체 컨테이너 */
 .profile{
-    width: 350px;
+    /* 세로 기준값: panels.css의 min-height(650px, panels.css:8)와 동일한 최소값 +
+       팀 공용 반응형 패턴(vw 기반 clamp, base.css/panels.css의 clamp(48px,5vw,80px)류와 동일 방식)을 따름 +
+       모바일/태블릿 구간까지만 대응하기로 해서 최대 1024px로 제한 */
+    --profile-h: clamp(650px, 58.125vw, 1024px);
+    /* 가로:세로 = 400:775(=16:31) 비율을 유지하며 세로값에서 가로를 역산 */
+    --profile-w: calc(var(--profile-h) * 16 / 31);
+    width: var(--profile-w);
+    height: var(--profile-h);
+    font-size: calc(var(--profile-w) / 350 * 16);
     display: flex;
     flex-direction: column;
     background-color: #2A4BB3;
-    border-radius: 10px;
+    border-radius: 0.625em;
     align-items: center;
 }
 
@@ -20,21 +28,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #203781;
-    padding: 10px 30px;
-    margin-bottom: 12px;
+    border-bottom: 0.1875em solid #203781;
+    padding: 0.625em 1.875em;
+    margin-bottom: 0.75em;
 
 }
 .profile-header-box {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625em;
     color: #C4C4C4;
-    font-size: 8px;
+    font-size: 0.5em;
 }
 
 .profile-header-img{
-    width: 50px;
+    width: 3.125em;
 }
 
 /* 스크린: 캐릭터 이미지 + 팝업 */
@@ -44,17 +52,17 @@
     flex-direction: column;
     justify-content: center;
     align-self: stretch;
-    margin: 0 15px;
-    height: 200px;
-    padding: 0 20px;
+    margin: 0 0.9375em;
+    height: 12.5em;
+    padding: 0 1.25em;
     background-color: #373740;
-    border: 10px solid #252529;
-    border-radius: 10PX;
-    margin-bottom: 10px;
+    border: 0.625em solid #252529;
+    border-radius: 0.625em;
+    margin-bottom: 0.625em;
  align-items: center;
 }
 .profile-screen-img {
-    width: 100px;
+    width: 6.25em;
 }
 .profile-screen-popup {
     position: absolute;
@@ -63,12 +71,13 @@
     align-items: center;
     bottom: 0;
     right: 0;
-    height: 40px;
+    height: 2.5em;
     font-weight: bold;
     width: 100%;
-    font-size: 13px;
+    font-size: 0.8125em;
     background-color:#D6D6D6 ;
-    border-radius: 10px 10px 0 0;
+    color: #252529;
+    border-radius: 0.625em 0.625em 0 0;
 }
 
 /* CONTACT ME 버튼 */
@@ -77,22 +86,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 15px;
-    margin: 0 15px;
-    border-radius: 10px;
+    padding: 0.625em 0.9375em;
+    margin: 0 0.9375em;
+    border-radius: 0.625em;
     background-color: #213E9A;
-    margin-bottom: 10px;
+    margin-bottom: 0.625em;
 }
 .profile-contact-button button {
     flex: 1;
     color: #167062;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1em;
     background-color:#44ac9e ;
     border: none;
-    border-bottom: 5px solid #167062;
-    height: 40px;
-    border-radius: 5px;
+    border-bottom: 0.3125em solid #167062;
+    height: 2.5em;
+    border-radius: 0.3125em;
 
 }
 .profile-contact-img-box {
@@ -101,13 +110,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
+    height: 2.5em;
     background-image: repeating-linear-gradient(
     45deg,
-    rgba(0, 0, 0, 0.15) 0px,
-    rgba(0, 0, 0, 0.15) 9px,
-    transparent 5px,
-    transparent 15px
+    rgba(0, 0, 0, 0.15) 0,
+    rgba(0, 0, 0, 0.15) 0.5625em,
+    transparent 0.3125em,
+    transparent 0.9375em
   );
   display: flex;
   align-items: center;
@@ -115,8 +124,8 @@
 }
 .profile-contact-img{
     display: inline;
-    width: 20px;
-     height: 20px;
+    width: 1.25em;
+     height: 1.25em;
      /* 원래 색 #213E9A  */
      background-color: #2b4fc5;
     -webkit-mask: url("../assets/images/b-1.png") center / contain no-repeat;
@@ -128,16 +137,16 @@
     display: flex;
     flex-direction: column;
     align-self: stretch;
-    margin: 0 15px;
-    padding: 10px;
+    margin: 0 0.9375em;
+    padding: 0.625em;
     background-color: #213E9A;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: 0.625em;
+    margin-bottom: 0.625em;
 }
 .profile-customizer-header{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625em;
     color: #4259A2;
 }
 
@@ -145,12 +154,12 @@
     display: flex;
     align-items: center;
     flex: 1;
-    gap: 10px;
+    gap: 0.625em;
 }
 
 .profile-customizer-img{
-    width: 30px;
-    height: 30px;
+    width: 1.875em;
+    height: 1.875em;
     background-color: #4259A2;
     -webkit-mask: url("../assets/images/b2.png") center / contain no-repeat;
     mask: url("../assets/images/b2.png") center / contain no-repeat;
@@ -159,12 +168,12 @@
 .profile-customizer-header p {
     font-weight: bold;
     color: #536CBB;
-    font-size: 13px;
+    font-size: 0.8125em;
 }
 
 .profile-customizer-bar{
     flex: 1;
-    height: 3px;
+    height: 0.1875em;
     background-color: #2A4BB3;
 }
 
@@ -172,52 +181,52 @@
 .profile-switch-button-layout {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 10px;
+    gap: 0.9375em;
+    margin-top: 0.625em;
 }
 .profile-switch-button{
     width: 100%;
-    height: 70px;
+    height: 4.375em;
     background-color: #2A4BB3;
     display: flex;
     color: #C4C4C4;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 0.625em;
+    border-radius: 0.5em;
     align-items: center;
     justify-content: space-between;
 }
 .profile-switch{
     display: flex;
-    width: 60px;
-    height: 40px;
+    width: 3.75em;
+    height: 2.5em;
     background-color: #213E9A;
-    border-radius: 30px;
-    padding: 5px;
+    border-radius: 1.875em;
+    padding: 0.3125em;
     align-items:center;
     justify-content: start;
 }
 .profile-switch-thumb {
-    width: 30px;
-    height: 30px;
+    width: 1.875em;
+    height: 1.875em;
     border-radius: 50%;
     background-color: #536CBB;
 }
 
 .profile-button-label{
-    font-size: 13px;
+    font-size: 0.8125em;
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: 0.0625em;
 }
 
 .profile-switch-deco {
-    height: 40px;
+    height: 2.5em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .profile-switch-dot{
-    width: 6px;
-    height: 6px;
+    width: 0.375em;
+    height: 0.375em;
     background-color: #213E9A;
     border-radius: 50%;
 }
@@ -226,11 +235,11 @@
 .profile-black-bar {
 
         align-self: stretch;
-        margin: 5px 40px 0px 40px;
+        margin: 0.3125em 2.5em 0 2.5em;
 
-    height: 40px;
+    height: 2.5em;
     background-color: #25252F;
-    border-radius: 10px 10px 0 0;
+    border-radius: 0.625em 0.625em 0 0;
 }
 
 .profile-screen::before {
@@ -243,6 +252,7 @@
   background: rgba(255, 255, 255, 0.04);
   clip-path: polygon(0 0, 100% 0, 100% 30%, 0 85%);
   pointer-events: none;
+  color: #2A2A30;
 }
 
 .profile-screen-img{
