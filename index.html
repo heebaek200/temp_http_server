@@ -48,14 +48,51 @@
             <button
               type="button"
               class="panel-lock-button"
-              aria-label="위쪽 패널 잠김"
-              aria-disabled="true"
             >
               🔒︎
             </button>
 
-            <div class="panel-content" hidden>
+            <div class="panel-content">
               <!-- 잠금 해제 후 콘텐츠 영역 -->
+               <div class="panel-content panel-content--social">
+                <div class="panel-social-list">
+                  <button
+                    type="button"
+                    class="panel-cell panel-social-button"
+                    data-action="social"
+                    data-social="x"
+                    aria-label="X 열기"
+                  >
+                    <span class="panel-round-button">
+                      <span class="panel-social-logo">X</span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-cell panel-social-button"
+                    data-action="social"
+                    data-social="linkedin"
+                    aria-label="LinkedIn 열기"
+                  >
+                    <span class="panel-round-button">
+                      <span class="panel-social-logo">in</span>
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-cell panel-social-button"
+                    data-action="social"
+                    data-social="webflow"
+                    aria-label="Webflow 열기"
+                  >
+                    <span class="panel-round-button">
+                      <span class="panel-social-logo">W</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -75,14 +112,53 @@
             <button
               type="button"
               class="panel-lock-button"
-              aria-label="가운데 패널 잠김"
-              aria-disabled="true"
             >
               🔒︎
             </button>
 
-            <div class="panel-content" hidden>
+            <div class="panel-content">
               <!-- 잠금 해제 후 콘텐츠 영역 -->
+              <div class="panel-content panel-content--portfolio">
+                <header class="portfolio-header">
+                  <div class="portfolio-title">
+                    <span class="portfolio-title-icon" aria-hidden="true">▣</span>
+                    <h3>PORTFOLIO</h3>
+                  </div>
+
+                  <div class="portfolio-controls">
+                    <button
+                      type="button"
+                      class="panel-round-button portfolio-control-button"
+                      data-action="portfolio-prev"
+                      aria-label="이전 포트폴리오"
+                    >
+                      ←
+                    </button>
+
+                    <button
+                      type="button"
+                      class="panel-round-button portfolio-control-button"
+                      data-action="portfolio-next"
+                      aria-label="다음 포트폴리오"
+                    >
+                      →
+                    </button>
+                  </div>
+                </header>
+
+                <button
+                  type="button"
+                  class="portfolio-preview"
+                  data-action="open-portfolio"
+                  aria-label="포트폴리오 둘러보기"
+                >
+                  <span class="portfolio-preview-arrow" aria-hidden="true">↗</span>
+                  <span class="portfolio-preview-text">
+                    BROWSE<br>
+                    MY PORTFOLIO
+                  </span>
+                </button>
+              </div>
             </div>
           </article>
 
@@ -103,14 +179,59 @@
               <button
                 type="button"
                 class="panel-lock-button"
-                aria-label="아래쪽 왼쪽 패널 잠김"
-                aria-disabled="true"
               >
                 🔒︎
               </button>
 
-              <div class="panel-content" hidden>
+              <div class="panel-content">
                 <!-- 잠금 해제 후 콘텐츠 영역 -->
+                <div class="panel-content panel-content--colors">
+                  <div class="color-options" aria-label="색상 선택">
+                    <button
+                      type="button"
+                      class="color-option color-option--pink"
+                      data-action="change-color"
+                      data-color="pink"
+                      aria-label="분홍색 선택"
+                      aria-pressed="false"
+                    >
+                      I
+                    </button>
+
+                    <button
+                      type="button"
+                      class="color-option color-option--purple selected"
+                      data-action="change-color"
+                      data-color="purple"
+                      aria-label="보라색 선택"
+                      aria-pressed="true"
+                    >
+                      I
+                    </button>
+
+                    <button
+                      type="button"
+                      class="color-option color-option--yellow"
+                      data-action="change-color"
+                      data-color="yellow"
+                      aria-label="노란색 선택"
+                      aria-pressed="false"
+                    >
+                      I
+                    </button>
+
+                    <button
+                      type="button"
+                      class="color-option color-option--white"
+                      data-action="change-color"
+                      data-color="white"
+                      aria-label="흰색 선택"
+                      aria-pressed="false"
+                    >
+                      I
+                    </button>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -129,14 +250,27 @@
               <button
                 type="button"
                 class="panel-lock-button"
-                aria-label="아래쪽 오른쪽 패널 잠김"
-                aria-disabled="true"
               >
                 🔒︎
               </button>
 
-              <div class="panel-content" hidden>
+              <div class="panel-content">
                 <!-- 잠금 해제 후 콘텐츠 영역 -->
+                <div class="panel-content panel-content--career">
+                  <button
+                    type="button"
+                    class="career-button"
+                    data-action="career"
+                    aria-label="프리랜서 경력 7년"
+                  >
+                    <strong class="career-number">7</strong>
+
+                    <span class="career-label">
+                      YEARS OF<br>
+                      FREELANCING
+                    </span>
+                  </button>
+                </div>
               </div>
             </article>
           </div>
@@ -159,14 +293,137 @@
             <button
               type="button"
               class="panel-lock-button"
-              aria-label="오른쪽 세로형 패널 잠김"
-              aria-disabled="true"
             >
               🔒︎
             </button>
 
-            <div class="panel-content" hidden>
+            <div class="panel-content">
               <!-- 잠금 해제 후 콘텐츠 영역 -->
+              <div class="panel-content panel-content--side-projects">
+                <header class="side-project-header">
+                  <div class="side-project-title">
+                    <span class="side-project-title-icon" aria-hidden="true">☕︎</span>
+                    <h3>SIDE-PROJECTS</h3>
+                  </div>
+
+                  <span class="panel-vent" aria-hidden="true"></span>
+                </header>
+
+                <div class="side-project-list">
+                  <button
+                    type="button"
+                    class="panel-cell side-project-button"
+                    data-action="open-project"
+                    data-project="pocket-island"
+                    aria-label="Pocket Island 열기"
+                  >
+                    <span class="panel-round-button side-project-icon side-project-icon--island">
+                      PI
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-cell side-project-button"
+                    data-action="open-project"
+                    data-project="invoice-maker"
+                    aria-label="Invoice Maker 열기"
+                  >
+                    <span class="panel-round-button side-project-icon side-project-icon--invoice">
+                      IM
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-cell side-project-button"
+                    data-action="open-project"
+                    data-project="tiny-adventure"
+                    aria-label="A Tiny Adventure 열기"
+                  >
+                    <span class="panel-round-button side-project-icon side-project-icon--adventure">
+                      TA
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-cell side-project-button"
+                    data-action="open-project"
+                    data-project="pizza-vs-burger"
+                    aria-label="Pizza VS Burger 열기"
+                  >
+                    <span class="panel-round-button side-project-icon side-project-icon--versus">
+                      VS
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-cell side-project-button"
+                    data-action="open-project"
+                    data-project="coo-concept"
+                    aria-label="Coo Concept 열기"
+                  >
+                    <span class="panel-round-button side-project-icon side-project-icon--coo">
+                      COO
+                    </span>
+                  </button>
+
+                  <div class="panel-cell side-project-empty" aria-hidden="true"></div>
+                </div>
+
+                <div class="side-project-crank-panel">
+                  <!-- 덮개 뒤에 미리 존재하는 공간 -->
+                  <div class="side-project-control">
+                    <button
+                      type="button"
+                      class="side-project-crank"
+                      data-action="turn-crank"
+                      aria-label="크랭크 돌리기"
+                    >
+                      <span class="side-project-crank-line" aria-hidden="true"></span>
+                      <span class="side-project-crank-handle" aria-hidden="true"></span>
+                    </button>
+
+                    <p class="side-project-control-text">Turn the crank</p>
+                  </div>
+
+                  <!-- 나사 4개로 고정된 덮개 -->
+                  <div class="side-project-cover">
+                    <button
+                      type="button"
+                      class="panel-screw panel-screw--top-left"
+                      data-action="remove-screw"
+                      aria-label="왼쪽 위 나사 풀기"
+                    ></button>
+
+                    <button
+                      type="button"
+                      class="panel-screw panel-screw--top-right"
+                      data-action="remove-screw"
+                      aria-label="오른쪽 위 나사 풀기"
+                    ></button>
+
+                    <button
+                      type="button"
+                      class="panel-screw panel-screw--bottom-left"
+                      data-action="remove-screw"
+                      aria-label="왼쪽 아래 나사 풀기"
+                    ></button>
+
+                    <button
+                      type="button"
+                      class="panel-screw panel-screw--bottom-right"
+                      data-action="remove-screw"
+                      aria-label="오른쪽 아래 나사 풀기"
+                    ></button>
+
+                    <span class="side-project-cover-holes" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </article>
         </div>
