@@ -182,7 +182,7 @@
     display: flex;
     color: #C4C4C4;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 8px;
     align-items: center;
     justify-content: space-between;
 }
@@ -243,4 +243,30 @@
   background: rgba(255, 255, 255, 0.04);
   clip-path: polygon(0 0, 100% 0, 100% 30%, 0 85%);
   pointer-events: none;
+}
+
+.profile-screen-img{
+    cursor: pointer;
+    transition: transform 0.2 ease;
+}
+.profile-screen-img:hover{
+    transform: scale(1.1);
+}
+
+
+.profile-contact-button button{
+    cursor: pointer;
+     transition: transform 0.2 ease;
+
+}
+.profile-contact-button button:hover{
+    border: none;
+}
+
+.profile-switch-button{
+    cursor: pointer;
+    transition: background-color 0.2 ease;
+}
+.profile-switch-button:hover{
+    background-color: #1B306F ;
 }
