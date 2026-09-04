@@ -370,6 +370,8 @@ background-image: repeating-radial-gradient(
     transition:  all 0.1s;
     /* 버튼이 무조건 화면 맨 앞으로 나오게 하기 */
     z-index: 2;
+    /* button 테두리 제거 */
+    border: none;
 }
 
 /* 5.2.1. 전원 버튼 안의 SVG 아이콘 디자인 */
@@ -525,4 +527,27 @@ background-image: repeating-radial-gradient(
     display: flex;
     align-items: center;
     transform: translateY(1px);
+}
+
+/* 전원 화면 페이드 아웃 */
+.power-screen {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.power-screen.fade-out {
+    opacity: 0;
+    /* 클릭 방지 */
+    pointer-events: none;
+}
+
+/* 대시보드 등장 애니메이션 */
+.dashboard {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6 ease;
+}
+
+.dashboard.animate-slide-in {
+    opacity: 1;
+    transform: translateY(0);
 }
