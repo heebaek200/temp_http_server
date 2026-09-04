@@ -450,47 +450,6 @@
   }
 }
 
-.panel-content h3 {
-  margin: 0;
-
-  color: #d7d7dd;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-}
-
-.panel-content button {
-  padding: 0;
-
-  color: inherit;
-  font: inherit;
-
-  border: 0;
-  cursor: pointer;
-}
-
-/* 네 모서리의 나사 표현 */
-.panel-cell {
-  background-color: #1e1e28;
-  background-image:
-    radial-gradient(circle at 11px 11px,
-      #464653 0 3px,
-      transparent 3.5px),
-    radial-gradient(circle at calc(100% - 11px) 11px,
-      #464653 0 3px,
-      transparent 3.5px),
-    radial-gradient(circle at 11px calc(100% - 11px),
-      #464653 0 3px,
-      transparent 3.5px),
-    radial-gradient(circle at calc(100% - 11px) calc(100% - 11px),
-      #464653 0 3px,
-      transparent 3.5px);
-
-  border: 1px solid #17171f;
-  border-radius: 5px;
-}
-
-
 /* ==================================================
    열린 패널 공통
 ================================================== */
@@ -1370,4 +1329,229 @@
     inset 0 4px 5px rgb(0 0 0 / 70%),
     inset 0 0 0 2px #15151d,
     0 1px 0 rgb(255 255 255 / 4%);
+}
+
+/* ==================================================
+   링크 모달
+================================================== */
+
+.link-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px;
+}
+
+.link-modal[hidden] {
+  display: none;
+}
+
+
+/* 카드 내부 배경 오버레이 */
+.link-modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background-color: rgb(10 10 16 / 72%);
+}
+
+
+/* 모달 본체 */
+.link-modal-dialog {
+  position: relative;
+  z-index: 1;
+
+  width: min(520px, 100%);
+
+  padding: 18px 20px;
+
+  background-color: #1a1a24;
+  border: 1px solid #111118;
+  border-radius: 10px;
+
+  box-shadow:
+    0 16px 40px rgb(0 0 0 / 45%),
+    inset 0 1px 0 rgb(255 255 255 / 3%);
+
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.link-modal.is-open .link-modal-dialog {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+
+/* 닫기 버튼 */
+.link-modal-close-wrap {
+  position: absolute;
+  z-index: 1;
+
+  top: -12px;
+  right: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  background-color: #24242f;
+  border-radius: 50%;
+}
+
+.link-modal-close {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+
+  color: #891538;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+
+  background-color: #eb326a;
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transform: rotate(0deg);
+
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.link-modal-close:hover {
+  transform: rotate(-90deg) scale(0.88);
+
+  background-color: #d92d61;
+
+  box-shadow:
+    inset 0 3px 4px rgb(0 0 0 / 35%);
+}
+
+.link-modal-close:active {
+  transform: rotate(-110deg) scale(0.8);
+
+  background-color: #bf244f;
+
+  box-shadow:
+    inset 0 4px 6px rgb(0 0 0 / 50%);
+}
+
+/* 내부 프레임 */
+.link-modal-content {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+
+  padding: 8px;
+
+  background-color: #24242f;
+  border-radius: 7px;
+
+  box-shadow:
+    0 7px 0 #111118,
+    0 10px 14px rgb(0 0 0 / 22%);
+}
+
+
+/* 아이콘 + 텍스트 영역 */
+.link-modal-main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+
+  min-width: 0;
+
+  background-color: #191923;
+  border-radius: 5px;
+}
+
+.link-modal-icon {
+  flex: none;
+
+  color: #535361;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.link-modal-body {
+  min-width: 0;
+}
+
+.link-modal-title {
+  display: block;
+
+  color: #e2e2e7;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+}
+
+.link-modal-description {
+  margin: 6px 0 0;
+
+  color: #c3c3ca;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+
+/* GO 버튼 */
+.link-modal-go {
+  display: flex;
+  flex: 0 0 66px;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  top: -3px;
+
+  color: #19786f;
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: none;
+
+  background-color: #50b9ae;
+  border-radius: 3px;
+
+  box-shadow:
+    0 6px 0 #267f78,
+    0 8px 8px rgb(0 0 0 / 20%);
+
+  transition:
+    top 0.12s ease,
+    box-shadow 0.12s ease;
+}
+
+.link-modal-go:hover {
+  top: 3px;
+
+  box-shadow: none;
+}
+
+.link-modal-go:active {
+  top: 6px;
+
+  box-shadow:
+    inset 0 4px 5px rgb(0 0 0 / 35%);
 }
