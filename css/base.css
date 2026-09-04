@@ -1,0 +1,95 @@
+/* 기본 설정 */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+
+  color: #d7d7d7;
+  background-color: #1d1d28;
+}
+
+/* 페이지 전체 영역 */
+#app {
+  width: 100%;
+  min-height: 100vh;
+
+  /* 배경 패턴 */
+  background-color: #1d1d28;
+  background-image:
+    radial-gradient(circle, rgba(229, 229, 229, 0.03) 20%, transparent 10%),
+    radial-gradient(circle, rgba(229, 229, 229, 0.03) 20%, transparent 10%);
+  background-size: 1vw 1vw;
+}
+
+/* 모바일 화면 배경 패턴 */
+@media (max-width: 768px) {
+  #app {
+    background-size: 3vw 3vw;
+  }
+}
+
+/* 전원 화면 */
+.power {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* 대시보드 전체 영역 */
+.dashboard {
+  display: flex;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 1440px;
+  min-height: 100vh;
+  padding: 24px;
+  margin: 0 auto;
+}
+
+/* 왼쪽 프로필 영역 */
+.profile {
+  flex: 0 0 340px;
+
+  min-width: 0;
+}
+
+/* 오른쪽 콘텐츠 패널 영역 */
+.panels {
+  flex: 1;
+
+  min-width: 0;
+}
+
+/* 화면 숨김 구현 */
+.hidden {
+  display: none;
+}
+
+/* 태블릿 및 모바일 화면 */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+
+    padding: 16px;
+  }
+
+  .profile {
+    flex: none;
+
+    width: 100%;
+  }
+
+  .panels {
+    flex: none;
+
+    width: 100%;
+  }
+}
