@@ -46,6 +46,8 @@ body {
 .dashboard {
   display: flex;
   gap: 20px;
+  /* profile과 panels가 같은 세로 길이를 공유하도록 stretch (panels 쪽 flex:1 요소가 남는 높이를 채움) */
+  align-items: stretch;
 
   width: 100%;
   max-width: 1440px;
@@ -56,7 +58,9 @@ body {
 
 /* 왼쪽 프로필 영역 */
 .profile {
-  flex: 0 0 340px;
+  /* flex-basis 고정값이 profile.css의 반응형 width(clamp)를 무시해서 auto로 변경 */
+  /* flex: 0 0 340px; */
+  flex: 0 0 auto;
 
   min-width: 0;
 }
