@@ -114,6 +114,23 @@
 }
 
 /* 3.1. 본체 위/아래 통풍구 (도트 패턴) */
+.power-machine::before,
+.power-cable-line::after {
+    /* 빈 가상 요소 생성 */
+    content: "";
+    /* 본체의 기준으로 위치 잡기 */
+    position: absolute;
+    /* 가로 가운데로 이동 */
+    left: 50%;
+    /* 정확히 한가운데 위치하도록 보정 */
+    transform: translateX(-50%);
+    /* 통풍구 영역의 너비 */
+    width: 48px;
+    /* 통풍구 영역의 높이 */
+    height: 12pz;
+    /* 2px 크기의 진한 파란색 원 패턴 만들기 */
+    background-image: radial-gradient(#233588 2px, transparent 2px);
+}
 
 /* 3.2. 나사(너트) 배치 */
 
