@@ -72,3 +72,24 @@ body {
 .hidden {
   display: none;
 }
+
+/* 태블릿 및 모바일 화면 */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+
+    padding: 16px;
+  }
+
+  .profile {
+    flex: none;
+
+    width: 100%;
+  }
+
+  .panels {
+    flex: none;
+
+    width: 100%;
+  }
+}
