@@ -3,37 +3,39 @@ const powerScreen = document.querySelector("#power-screen");
 const powerButton = document.querySelector(".power-button");
 const dashboard = document.querySelector("#dashboard");
 
-if(powerScreen && powerButton && dashboard){
-// 상태 변수(중복 클릭 방지용)
-    let isPowerOn = false;
+// 요소들이 페이지에 존재하는지 확인 후 실행 (에러 방지)
+if (powerScreen && powerButton && dashboard) {
+  let isPowerOn = false;
 
-powerButton.addEventListener("click", () => {
-    if(isPowerOn){
-        return;
-    }
-
+  // 1. 노란색 전원 버튼 클릭 이벤트
+  powerButton.addEventListener("click", () => {
+    if (isPowerOn) return; // 중복 클릭 방지
     isPowerOn = true;
-    powerButton.disabled = true;
+    
+    // 버튼을 살짝 눌린 상태로 유지하려면 추가 (선택사항)
+    powerButton.style.transform = "translateX(-50%) translateY(4px)";
+    powerButton.style.boxShadow = "0 0 0 #d99a00, 0 2px 5px rgba(0, 0, 0, 0.3)";
 
-    // [선택] 전원 화면에 퇴장 애니메이션 클래스 추가 (CSS 연동용)
-        powerScreen.classList.add("fade-out");
-});
+    // A구역 페이드 아웃 시작 (power.css의 .fade-out 클래스)
+    powerScreen.classList.add("fade-out");
+  });
 
+  // 2. 페이드 아웃 애니메이션이 완전히 끝난 후 화면 교체
+  powerScreen.addEventListener("transitionend", (event) => {
+    // 투명도(opacity) 애니메이션이 끝났을 때만 실행
+    if (event.propertyName !== "opacity") return;
+    if (event.target !== powerScreen) return;
 
-powerScreen.addEventListener("animationend", (event) => {
-    if(event.target !== powerScreen){
-        return;
-    }
-    // 1. 전원 화면 숨김
+    // A구역 숨기기 (base.css의 .hidden 클래스)
     powerScreen.classList.add("hidden");
     
-    // 2. 대시 보드 표시(hidden 제거)
-    dashboard.classList.remove(hidden);
+    // B, C구역 대시보드 구조 나타내기
+    dashboard.classList.remove("hidden");
 
-    // 3. 대시 보드에 등장 클래스 추가(애니메이션 유도)
+    // 3. B, C구역이 스르륵 올라오는 등장 애니메이션 실행
+    // 화면에 display: flex가 적용될 시간을 0.01초 벌어준 뒤 애니메이션 클래스를 붙입니다.
     requestAnimationFrame(() => {
-        // 등장 애니메이션 클래스
-        dashboard.classList.add("animate-slide-in");
+      dashboard.classList.add("animate-slide-in");
     });
-});
+  });
 }
