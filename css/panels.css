@@ -1652,8 +1652,6 @@
     );
 
   cursor: default;
-
-  animation: portfolio-placeholder-glitch 4s infinite;
 }
 
 .portfolio-slide--placeholder::after {
@@ -1739,30 +1737,6 @@
    최초 표시되는 플레이스홀더
 ================================================== */
 
-.portfolio-placeholder {
-  position: relative;
-
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  min-height: 0;
-  padding: 0;
-
-  color: #44444e;
-
-  background-color: transparent;
-  border: 0;
-
-  cursor: default;
-}
-
-.portfolio-placeholder[hidden] {
-  display: none;
-}
-
 .portfolio-preview-text {
   font-size: clamp(18px, 2vw, 27px);
   font-weight: 900;
@@ -1787,17 +1761,6 @@
 /* ==================================================
    슬라이드 영역
 ================================================== */
-
-.portfolio-slider {
-  position: absolute;
-  inset: 0;
-
-  overflow: hidden;
-}
-
-.portfolio-slider[hidden] {
-  display: none;
-}
 
 .portfolio-track {
   display: flex;

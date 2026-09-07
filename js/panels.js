@@ -6,8 +6,6 @@ const portfolioTrack = document.querySelector("#portfolio-track");
 const portfolioSlides = document.querySelectorAll(".portfolio-slide");
 const portfolioLightbox = document.querySelector("#portfolio-lightbox");
 const portfolioLightboxImage = document.querySelector("#portfolio-lightbox-image");
-const portfolioPlaceholder = document.querySelector("#portfolio-placeholder");
-const portfolioSlider = document.querySelector("#portfolio-slider");
 
 let portfolioIndex = 0;
 
@@ -108,7 +106,7 @@ portfolioLightbox.addEventListener("click", (event) => {
 
 panels.addEventListener("click", (event) => {
 
-    
+
     // 포트폴리오 이미지 슬라이드 확대
     const expandSlide = event.target.closest(
         "[data-action='expand-slide']"
@@ -188,6 +186,7 @@ panels.addEventListener("click", (event) => {
     const modalCloseButton = event.target.closest(".link-modal-close");
     if (modalCloseButton) {
         closeLinkModal();
+        return;
     }
 
     // 클릭한 구역이 패널 내 카드영역인지 확인
@@ -324,7 +323,7 @@ function moveLightbox(direction) {
 
     // 마지막 다음은 첫 번째
     if (portfolioIndex >= portfolioSlides.length) {
-        portfolioIndex = 0;
+        portfolioIndex = 1;
     }
 
     // 첫 번째 이전은 마지막
@@ -333,10 +332,7 @@ function moveLightbox(direction) {
     }
 
     updateLightboxImage();
-
-    // 뒤쪽 원래 슬라이드도 같은 위치로 맞춤
-    portfolioTrack.style.transform =
-        `translateX(-${portfolioIndex * 100}%)`;
+    updatePortfolioPosition();
 }
 
 
