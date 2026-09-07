@@ -30,6 +30,7 @@
     flex-direction: column;
     /* 선과 연결부를 가로 중앙으로 정렬 */
     align-items: center;
+
 }
 
 /* 2.1. 파란색 파워선 몸통 */
@@ -193,7 +194,7 @@
     /* 모든 테두리와 그림자 효과를 완벽하게 제거 */
     border: none;
     box-shadow: none;
-    position: relative;
+    
 }
 
 /* 십자(+) 모양 홈 만들기(가상 요소를 활용한 음각 선 구현) */
@@ -279,7 +280,14 @@ background-image: repeating-radial-gradient(
     transparent 1px,
     transparent 2px
 );
+/* ⭐️ 노이즈 지글거림과 화면 깜빡임을 동시에 적용 */
+    animation: 
+    /* 0.3초마다 배경 패턴을 마구 섞어줌 (무한반복) */
+        static-noise 0.3s infinite, 
+        /* 5초에 한 번씩 화면이 '치직' 하고 깜빡임 (무한반복) */
+        screen-flicker 5s infinite; 
 }
+
 
 /* 4.2. 스크린 안의 제목 텍스트 */
 .power-screen-title {
@@ -293,6 +301,9 @@ background-image: repeating-radial-gradient(
     margin: 0 0 8px 0;
     /* 알파벳 사이의 간격(자간)을 0.5px 넓혀서 가독성을 높임 */
     letter-spacing: 0.5px;
+
+    /* ⭐️ 첫 번째 바운스(0.25초)에 맞춰 등장 */
+    animation: slide-up-text 0.4s ease-out 0.25s both;
 }
 
 
@@ -302,12 +313,15 @@ background-image: repeating-radial-gradient(
     color: #8c8f99;
     /* 글자 크기를 13px로 설정하여 좁은 스크린 안에서고 적당한 분량이 들어가도록 맞추기 */
     font-size: 13px;
-    /* 어두운 배경에서 글씨가 묻히지 않도록 글자 두께를 600으로 설정 */
+    /* 어두운 배경에서 글씨가 묻히지 않도록 글자 두께를 13으로 설정 */
     font-size: 13px;
     /* 줄 간격을 글자 크기의 1.5배로 설정하여 여러 줄이 되어도 답답해 보이지 않게 여백 확보  */
     line-height: 1.5;
     /* <p> 태그가 기본적으로 가지고 있는 불필요한 위아래 여백을 0으로 만들어 레이아웃 틀이 틀어짐을 방지 */
     margin: 0;
+
+    /* ⭐️ 두 번째 바운스(0.75초)에 맞춰 등장 */
+    animation: slide-up-text 0.4s ease-out 0.75s both;
 }
 
 /* 5. 전원 버튼 및 말풍선 */
@@ -370,6 +384,8 @@ background-image: repeating-radial-gradient(
     transition:  all 0.1s;
     /* 버튼이 무조건 화면 맨 앞으로 나오게 하기 */
     z-index: 2;
+    /* button 테두리 제거 */
+    border: none;
 }
 
 /* 5.2.1. 전원 버튼 안의 SVG 아이콘 디자인 */
@@ -428,6 +444,9 @@ background-image: repeating-radial-gradient(
 /* 💡 필수: HTML에 하드코딩된 '말풍선' 글자를 숨깁니다 */
     color: transparent;
     font-size: 0;
+
+    /* ⭐️ 1.2초 대기 후 0.8초 동안 떨어지고 흔들림 */
+    animation: drop-and-shake 0.8s ease-out 1.2s both;
     
 }
 
@@ -465,7 +484,7 @@ background-image: repeating-radial-gradient(
     /* 말풍선과 동일한 흰색 배경 */
     background-color: #ffffff;
 
-    /* 사각형을 15도 돌려서 마름모꼴(다이아몬드) 형태로 만들어 꼬리처럼 보이게 하기 */
+    /* 사각형을 1도 돌려서 마름모꼴(다이아몬드) 형태로 만들어 꼬리처럼 보이게 하기 */
     transform: rotate(1deg);
     /* 튀어나온 끝부분(왼쪽 아래)만 아주 살짝 둥글게 다듬기 */
     border-radius: 0;
@@ -525,4 +544,121 @@ background-image: repeating-radial-gradient(
     display: flex;
     align-items: center;
     transform: translateY(1px);
+}
+
+/* 전원 화면 페이드 아웃 */
+#power-screen {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+
+    /* ⭐️: 화면 전체(선+기계)가 같이 바운싱되도록 설정 */
+    animation: drop-bounce 0.5s ease-in-out 2;
+}
+
+/* 자바스크립트에서는 전체를 감싸는 #power-screen에 fade-out 클래스를 추가하고 있으므로 CSS 선택자를 수정 */
+#power-screen.fade-out {
+    opacity: 0;
+    /* 클릭 방지 */
+    pointer-events: none;
+}
+
+/* 대시보드 등장 애니메이션 */
+.dashboard {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.dashboard.animate-slide-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* -------------------------------------
+   새로 추가: 기계 전체 바운싱 애니메이션
+-------------------------------------- */
+@keyframes drop-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px); /* 전체가 아래로 15px 덜컹! 하고 내려감 */
+  }
+}
+
+/* -------------------------------------
+   새로 추가: 스크린 텍스트 등장 애니메이션
+-------------------------------------- */
+@keyframes slide-up-text {
+  0% {
+    opacity: 0;
+    transform: translateY(15px); /* 처음엔 투명하고 아래로 15px 내려가 있음 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* 제자리로 오면서 선명해짐 */
+  }
+}
+
+/* -------------------------------------
+   새로 추가: 말풍선 낙하 및 흔들림 애니메이션
+-------------------------------------- */
+@keyframes drop-and-shake {
+  0% {
+    opacity: 0;
+    /* 현재 위치를 기준으로 좌측 상단(-60px, -60px)으로 띄워놓고, 
+       살짝 기울여(-20도) 놓습니다. */
+    transform: translate(-60px, -60px) rotate(-20deg);
+  }
+  40% {
+    opacity: 1;
+    /* 원래 위치(0,0)로 툭 떨어지며 착지! 
+       착지의 반동으로 반대쪽(15도)으로 확 꺾입니다. */
+    transform: translate(0, 0) rotate(15deg);
+  }
+  55% {
+    /* 1번째 흔들림 (좌측) */
+    transform: translate(0, 0) rotate(-10deg);
+  }
+  70% {
+    /* 1번째 흔들림 (우측) */
+    transform: translate(0, 0) rotate(10deg);
+  }
+  85% {
+    /* 2번째 흔들림 (좌측 - 진폭 감소) */
+    transform: translate(0, 0) rotate(-5deg);
+  }
+  100% {
+    /* 제자리에 완벽히 안착 */
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* -------------------------------------
+   새로 추가: 배경 노이즈(치지직) 애니메이션
+-------------------------------------- */
+@keyframes static-noise {
+  0% { background-position: 0 0; }
+  10% { background-position: -1px 2px; }
+  20% { background-position: 2px -1px; }
+  30% { background-position: -2px -2px; }
+  40% { background-position: 1px 2px; }
+  50% { background-position: -1px 1px; }
+  60% { background-position: 2px 2px; }
+  70% { background-position: 1px -2px; }
+  80% { background-position: -2px 1px; }
+  90% { background-position: 2px -1px; }
+  100% { background-position: 0 0; }
+}
+
+/* -------------------------------------
+   새로 추가: 오래된 모니터 깜빡임(Flicker) 애니메이션
+-------------------------------------- */
+@keyframes screen-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.9; }   /* 살짝 어두워짐 */
+  94% { opacity: 1; }
+  96% { opacity: 0.85; }  /* 한 번 더 어두워짐 */
+  98% { opacity: 1; }
 }
