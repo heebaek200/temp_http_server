@@ -154,14 +154,51 @@
             <button
               type="button"
               class="panel-lock-button"
-              aria-label="위쪽 패널 잠김"
-              aria-disabled="true"
+              aria-label="위쪽 패널 열기"
             >
               🔒︎
             </button>
 
-            <div class="panel-content" hidden>
-              <!-- 잠금 해제 후 콘텐츠 영역 -->
+            
+            <!-- 잠금 해제 후 콘텐츠 영역 -->
+            <div class="panel-content panel-content--social">
+              <div class="panel-social-list">
+                <button
+                  type="button"
+                  class="panel-cell panel-social-button"
+                  data-action="social"
+                  data-social="x"
+                  aria-label="X 열기"
+                >
+                  <span class="panel-round-button">
+                    <span class="panel-social-logo">X</span>
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="panel-cell panel-social-button"
+                  data-action="social"
+                  data-social="linkedin"
+                  aria-label="LinkedIn 열기"
+                >
+                  <span class="panel-round-button">
+                    <span class="panel-social-logo">in</span>
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="panel-cell panel-social-button"
+                  data-action="social"
+                  data-social="webflow"
+                  aria-label="Webflow 열기"
+                >
+                  <span class="panel-round-button">
+                    <span class="panel-social-logo">W</span>
+                  </span>
+                </button>
+              </div>
             </div>
           </article>
 
@@ -181,14 +218,114 @@
             <button
               type="button"
               class="panel-lock-button"
-              aria-label="가운데 패널 잠김"
-              aria-disabled="true"
+              aria-label="가운데 패널 열기"
             >
               🔒︎
             </button>
 
-            <div class="panel-content" hidden>
-              <!-- 잠금 해제 후 콘텐츠 영역 -->
+            <!-- 잠금 해제 후 콘텐츠 영역 -->
+            <div class="panel-content panel-content--portfolio">
+              <header class="portfolio-header">
+                <div class="portfolio-title">
+                  <span class="portfolio-title-icon" aria-hidden="true">▣</span>
+                  <h3>PORTFOLIO</h3>
+                </div>
+
+                <div class="portfolio-controls">
+                  <button
+                    type="button"
+                    class="panel-round-button portfolio-control-button"
+                    data-action="portfolio-prev"
+                    aria-label="이전 포트폴리오"
+                  >
+                    ←
+                  </button>
+
+                  <button
+                    type="button"
+                    class="panel-round-button portfolio-control-button"
+                    data-action="portfolio-next"
+                    aria-label="다음 포트폴리오"
+                  >
+                    →
+                  </button>
+                </div>
+              </header>
+
+              <div class="portfolio-preview">
+
+                <div id="portfolio-track" class="portfolio-track">
+                  <!-- 0번: 기존 공백 페이지 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide portfolio-slide--placeholder"
+                    data-action="expand-slide"
+                    aria-label="포트폴리오 확대"
+                  >
+                    <span class="portfolio-preview-arrow" aria-hidden="true">↗</span>
+
+                    <span class="portfolio-preview-text">
+                      BROWSE<br>
+                      MY PORTFOLIO
+                    </span>
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+
+                  <!-- 1번 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide"
+                    data-action="expand-slide"
+                    aria-label="첫 번째 포트폴리오 확대"
+                  >
+                    <img
+                      src="https://picsum.photos/seed/port1/600/600"
+                      alt="첫 번째 포트폴리오"
+                    >
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+
+                  <!-- 2번 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide"
+                    data-action="expand-slide"
+                    aria-label="두 번째 포트폴리오 확대"
+                  >
+                    <img
+                      src="https://picsum.photos/seed/port2/600/600"
+                      alt="두 번째 포트폴리오"
+                    >
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+
+                  <!-- 3번 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide"
+                    data-action="expand-slide"
+                    aria-label="세 번째 포트폴리오 확대"
+                  >
+                    <img
+                      src="https://picsum.photos/seed/port3/600/600"
+                      alt="세 번째 포트폴리오"
+                    >
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -209,14 +346,58 @@
               <button
                 type="button"
                 class="panel-lock-button"
-                aria-label="아래쪽 왼쪽 패널 잠김"
-                aria-disabled="true"
+                aria-label="아래쪽 왼쪽 패널 열기"
               >
                 🔒︎
               </button>
 
-              <div class="panel-content" hidden>
-                <!-- 잠금 해제 후 콘텐츠 영역 -->
+              <!-- 잠금 해제 후 콘텐츠 영역 -->
+              <div class="panel-content panel-content--colors">
+                <div class="color-options" aria-label="색상 선택">
+                  <button
+                    type="button"
+                    class="color-option color-option--pink"
+                    data-action="change-color"
+                    data-color="pink"
+                    aria-label="분홍색 선택"
+                    aria-pressed="false"
+                  >
+                    I
+                  </button>
+
+                  <button
+                    type="button"
+                    class="color-option color-option--purple selected"
+                    data-action="change-color"
+                    data-color="purple"
+                    aria-label="보라색 선택"
+                    aria-pressed="true"
+                  >
+                    I
+                  </button>
+
+                  <button
+                    type="button"
+                    class="color-option color-option--yellow"
+                    data-action="change-color"
+                    data-color="yellow"
+                    aria-label="노란색 선택"
+                    aria-pressed="false"
+                  >
+                    I
+                  </button>
+
+                  <button
+                    type="button"
+                    class="color-option color-option--white"
+                    data-action="change-color"
+                    data-color="white"
+                    aria-label="흰색 선택"
+                    aria-pressed="false"
+                  >
+                    I
+                  </button>
+                </div>
               </div>
             </article>
 
@@ -235,14 +416,26 @@
               <button
                 type="button"
                 class="panel-lock-button"
-                aria-label="아래쪽 오른쪽 패널 잠김"
-                aria-disabled="true"
+                aria-label="아래쪽 오른쪽 패널 열기"
               >
                 🔒︎
               </button>
 
-              <div class="panel-content" hidden>
-                <!-- 잠금 해제 후 콘텐츠 영역 -->
+              <!-- 잠금 해제 후 콘텐츠 영역 -->
+              <div class="panel-content panel-content--career">
+                <button
+                  type="button"
+                  class="career-button"
+                  data-action="career"
+                  aria-label="프리랜서 경력 7년"
+                >
+                  <strong class="career-number">7</strong>
+
+                  <span class="career-label">
+                    YEARS OF<br>
+                    FREELANCING
+                  </span>
+                </button>
               </div>
             </article>
           </div>
@@ -265,17 +458,259 @@
             <button
               type="button"
               class="panel-lock-button"
-              aria-label="오른쪽 세로형 패널 잠김"
-              aria-disabled="true"
+              aria-label="오른쪽 세로형 패널 열기"
             >
               🔒︎
             </button>
 
-            <div class="panel-content" hidden>
-              <!-- 잠금 해제 후 콘텐츠 영역 -->
+            <!-- 잠금 해제 후 콘텐츠 영역 -->
+            <div class="panel-content panel-content--side-projects">
+              <header class="side-project-header">
+                <div class="side-project-title">
+                  <span class="side-project-title-icon" aria-hidden="true">☕︎</span>
+                  <h3>SIDE-PROJECTS</h3>
+                </div>
+
+                <span class="panel-vent" aria-hidden="true"></span>
+              </header>
+
+              <div class="side-project-list">
+                <button
+                  type="button"
+                  class="panel-cell side-project-button"
+                  data-action="open-project"
+                  data-project="pocket-island"
+                  aria-label="Pocket Island 열기"
+                >
+                  <span class="panel-round-button side-project-icon side-project-icon--island">
+                    PI
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="panel-cell side-project-button"
+                  data-action="open-project"
+                  data-project="invoice-maker"
+                  aria-label="Invoice Maker 열기"
+                >
+                  <span class="panel-round-button side-project-icon side-project-icon--invoice">
+                    IM
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="panel-cell side-project-button"
+                  data-action="open-project"
+                  data-project="tiny-adventure"
+                  aria-label="A Tiny Adventure 열기"
+                >
+                  <span class="panel-round-button side-project-icon side-project-icon--adventure">
+                    TA
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="panel-cell side-project-button"
+                  data-action="open-project"
+                  data-project="pizza-vs-burger"
+                  aria-label="Pizza VS Burger 열기"
+                >
+                  <span class="panel-round-button side-project-icon side-project-icon--versus">
+                    VS
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="panel-cell side-project-button"
+                  data-action="open-project"
+                  data-project="coo-concept"
+                  aria-label="Coo Concept 열기"
+                >
+                  <span class="panel-round-button side-project-icon side-project-icon--coo">
+                    COO
+                  </span>
+                </button>
+
+                <div class="panel-cell side-project-empty" aria-hidden="true"></div>
+              </div>
+
+              <div class="side-project-crank-panel">
+                <!-- 덮개 뒤에 미리 존재하는 공간 -->
+                <div class="side-project-control">
+                  <button
+                    type="button"
+                    class="side-project-crank"
+                    data-action="turn-crank"
+                    aria-label="크랭크 돌리기"
+                  >
+                    <span class="side-project-crank-line" aria-hidden="true"></span>
+                    <span class="side-project-crank-handle" aria-hidden="true"></span>
+                  </button>
+
+                  <p class="side-project-control-text">Turn the crank</p>
+                </div>
+
+                <!-- 나사 4개로 고정된 덮개 -->
+                <div class="side-project-cover">
+                  <button
+                    type="button"
+                    class="panel-screw panel-screw--top-left"
+                    data-action="remove-screw"
+                    aria-label="왼쪽 위 나사 풀기"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="panel-screw panel-screw--top-right"
+                    data-action="remove-screw"
+                    aria-label="오른쪽 위 나사 풀기"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="panel-screw panel-screw--bottom-left"
+                    data-action="remove-screw"
+                    aria-label="왼쪽 아래 나사 풀기"
+                  ></button>
+
+                  <button
+                    type="button"
+                    class="panel-screw panel-screw--bottom-right"
+                    data-action="remove-screw"
+                    aria-label="오른쪽 아래 나사 풀기"
+                  ></button>
+
+                  <span class="side-project-cover-holes" aria-hidden="true"></span>
+                </div>
+              </div>
+
             </div>
           </article>
         </div>
+
+        <!-- 포트폴리오 확대 슬라이드 쇼 -->
+        <div
+          id="portfolio-lightbox"
+          class="portfolio-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="포트폴리오 확대 보기"
+          hidden
+        >
+          <div
+            class="portfolio-lightbox-backdrop"
+            data-action="close-lightbox"
+          ></div>
+
+          <div class="portfolio-lightbox-dialog">
+            <button
+              type="button"
+              class="portfolio-lightbox-close"
+              data-action="close-lightbox"
+              aria-label="확대 보기 닫기"
+            >
+              ×
+            </button>
+
+            <button
+              type="button"
+              class="portfolio-lightbox-navigation portfolio-lightbox-navigation--prev"
+              data-action="lightbox-prev"
+              aria-label="이전 이미지"
+            >
+              ←
+            </button>
+
+            <div class="portfolio-lightbox-image-wrap">
+              <img
+                id="portfolio-lightbox-image"
+                class="portfolio-lightbox-image"
+                src=""
+                alt=""
+              >
+            </div>
+
+            <button
+              type="button"
+              class="portfolio-lightbox-navigation portfolio-lightbox-navigation--next"
+              data-action="lightbox-next"
+              aria-label="다음 이미지"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <!-- 링크 모달 -->
+        <div
+          id="link-modal"
+          class="link-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="link-modal-title"
+          hidden
+        >
+          <div
+            class="link-modal-backdrop"
+            data-action="close-modal"
+          ></div>
+
+          <div class="link-modal-dialog">
+            <div class="link-modal-close-wrap">
+              <button
+                type="button"
+                class="link-modal-close"
+                data-action="close-modal"
+                aria-label="모달 닫기"
+              >
+                ×
+              </button>
+            </div>
+
+            <div class="link-modal-content">
+              <div class="link-modal-main">
+                <span
+                  id="link-modal-icon"
+                  class="link-modal-icon"
+                  aria-hidden="true"
+                >
+                  X
+                </span>
+
+                <div class="link-modal-body">
+                  <strong
+                    id="link-modal-title"
+                    class="link-modal-title"
+                  >
+                    TWITTER / X PROFILE
+                  </strong>
+
+                  <p
+                    id="link-modal-description"
+                    class="link-modal-description"
+                    hidden
+                  ></p>
+                </div>
+              </div>
+
+              <a
+                id="link-modal-go"
+                class="link-modal-go"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GO!
+              </a>
+            </div>
+          </div>
+        </div>
+
+
       </section>
     </main>
   </div>
