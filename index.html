@@ -146,18 +146,80 @@
                 </div>
               </header>
 
-              <button
-                type="button"
-                class="portfolio-preview"
-                data-action="open-portfolio"
-                aria-label="포트폴리오 둘러보기"
-              >
-                <span class="portfolio-preview-arrow" aria-hidden="true">↗</span>
-                <span class="portfolio-preview-text">
-                  BROWSE<br>
-                  MY PORTFOLIO
-                </span>
-              </button>
+              <div class="portfolio-preview">
+
+                <div id="portfolio-track" class="portfolio-track">
+                  <!-- 0번: 기존 공백 페이지 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide portfolio-slide--placeholder"
+                    data-action="expand-slide"
+                    aria-label="포트폴리오 확대"
+                  >
+                    <span class="portfolio-preview-arrow" aria-hidden="true">↗</span>
+
+                    <span class="portfolio-preview-text">
+                      BROWSE<br>
+                      MY PORTFOLIO
+                    </span>
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+
+                  <!-- 1번 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide"
+                    data-action="expand-slide"
+                    aria-label="첫 번째 포트폴리오 확대"
+                  >
+                    <img
+                      src="https://picsum.photos/seed/port1/600/600"
+                      alt="첫 번째 포트폴리오"
+                    >
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+
+                  <!-- 2번 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide"
+                    data-action="expand-slide"
+                    aria-label="두 번째 포트폴리오 확대"
+                  >
+                    <img
+                      src="https://picsum.photos/seed/port2/600/600"
+                      alt="두 번째 포트폴리오"
+                    >
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+
+                  <!-- 3번 -->
+                  <button
+                    type="button"
+                    class="portfolio-slide"
+                    data-action="expand-slide"
+                    aria-label="세 번째 포트폴리오 확대"
+                  >
+                    <img
+                      src="https://picsum.photos/seed/port3/600/600"
+                      alt="세 번째 포트폴리오"
+                    >
+
+                    <span class="portfolio-eye-tab" aria-hidden="true">
+                      👁
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </article>
 
@@ -422,6 +484,59 @@
 
             </div>
           </article>
+        </div>
+
+        <!-- 포트폴리오 확대 슬라이드 쇼 -->
+        <div
+          id="portfolio-lightbox"
+          class="portfolio-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="포트폴리오 확대 보기"
+          hidden
+        >
+          <div
+            class="portfolio-lightbox-backdrop"
+            data-action="close-lightbox"
+          ></div>
+
+          <div class="portfolio-lightbox-dialog">
+            <button
+              type="button"
+              class="portfolio-lightbox-close"
+              data-action="close-lightbox"
+              aria-label="확대 보기 닫기"
+            >
+              ×
+            </button>
+
+            <button
+              type="button"
+              class="portfolio-lightbox-navigation portfolio-lightbox-navigation--prev"
+              data-action="lightbox-prev"
+              aria-label="이전 이미지"
+            >
+              ←
+            </button>
+
+            <div class="portfolio-lightbox-image-wrap">
+              <img
+                id="portfolio-lightbox-image"
+                class="portfolio-lightbox-image"
+                src=""
+                alt=""
+              >
+            </div>
+
+            <button
+              type="button"
+              class="portfolio-lightbox-navigation portfolio-lightbox-navigation--next"
+              data-action="lightbox-next"
+              aria-label="다음 이미지"
+            >
+              →
+            </button>
+          </div>
         </div>
 
         <!-- 링크 모달 -->
