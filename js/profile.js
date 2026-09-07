@@ -22,6 +22,7 @@ const contactArrowIcon = document.querySelector(".profile-contact-img"); // 화�
 const screenPopup = document.querySelector(".profile-screen-popup"); // "SLIDE IT!" 문구
 const screenImg = document.querySelector(".profile-screen-img"); // 스크린 안 캐릭터 이미지
 const profileScreen = document.querySelector(".profile-screen"); // 캐릭터/팝업을 담는 스크린 박스
+const profileScreenImg = document.querySelector(".profile-screen-img"); // 캐릭터/팝업을 담는 이미지 박스
 
 // 버튼을 끝까지 밀었을 때 이동할 링크
 const CONTACT_LINK = "https://www.naver.com";
@@ -238,9 +239,30 @@ const switchButtons = document.querySelectorAll(".profile-switch-button");
 
 // 버튼의 라벨 문구(.profile-button-label, 기존 html 그대로)로 어떤 스위치인지 구분한다
 const PROFILE_CONFIG = {
-  "GRAPHIC & WEBDESIGNER": { profile: "graphic", emoji: "✏️", rotate: "rotate(90deg)", top: "0.125em", right: "1.9em", fontSize: "2.5em" },
-  "MOTION DESIGNER": { profile: "motion", emoji: "⚙️", rotate: "", top: "0.03em", right: "1.9em", fontSize: "2.5em" },
-  "WEBFLOW EXPERT": { profile: "webflow", emoji: "👓", rotate: "rotate(-15deg)", top: "0.08em", right: "1.4em", fontSize: "4.5em" },
+  "GRAPHIC & WEBDESIGNER": {
+    profile: "graphic",
+    emoji: "✏️",
+    rotate: "rotate(90deg)",
+    top: "-17%",
+    right: "-19%",
+    fontSize: "2.5em"
+  },
+  "MOTION DESIGNER": {
+    profile: "motion",
+    emoji: "⚙️",
+    rotate: "",
+    top: "-17%",
+    right: "-19%",
+    fontSize: "2.5em"
+  },
+  "WEBFLOW EXPERT": {
+    profile: "webflow", 
+    emoji: "👓", 
+    rotate: "rotate(-15deg)",
+    top: "-16%",
+    right: "0.8%",
+    fontSize: "4.5em"
+  },
 };
 
 // 노이즈 3종: 무늬(backgroundImage)는 고정, 움직임/밝기만 Web Animations API로 반복 재생
@@ -283,7 +305,7 @@ Object.assign(dynamicIcon.style, {
   pointerEvents: "none",
   transition: "opacity 0.2s ease, transform 0.2s ease",
 });
-profileScreen.appendChild(dynamicIcon);
+profileScreenImg.appendChild(dynamicIcon);
 
 const dynamicNoise = document.createElement("div");
 Object.assign(dynamicNoise.style, {

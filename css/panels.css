@@ -6,6 +6,7 @@
   width: 100%;
   min-width: 0;
   min-height: 650px;
+  height: var(--profile-h);
 }
 
 /* 왼쪽 열과 오른쪽 열 */
