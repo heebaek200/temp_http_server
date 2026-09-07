@@ -9,8 +9,10 @@ if (powerScreen && powerButton && dashboard) {
 
   // 1. 노란색 전원 버튼 클릭 이벤트
   powerButton.addEventListener("click", () => {
-    if (isPowerOn) return; // 중복 클릭 방지
+    // 중복 클릭 방지
+    if (isPowerOn) return; 
     isPowerOn = true;
+    powerButton.disabled = true;
     
     // 버튼을 살짝 눌린 상태로 유지하려면 추가 (선택사항)
     powerButton.style.transform = "translateX(-50%) translateY(4px)";
@@ -27,7 +29,8 @@ if (powerScreen && powerButton && dashboard) {
     if (event.target !== powerScreen) return;
 
     // A구역 숨기기 (base.css의 .hidden 클래스)
-    powerScreen.classList.add("hidden");
+    // powerScreen.classList.add("hidden");
+    powerScreen.remove();
     
     // B, C구역 대시보드 구조 나타내기
     dashboard.classList.remove("hidden");
