@@ -1,6 +1,13 @@
 /* 기본 설정 */
 * {
   box-sizing: border-box;
+
+  /* 세로 기준값: panels.css의 min-height(650px, panels.css:8)와 동일한 최소값 +
+      팀 공용 반응형 패턴(vw 기반 clamp, base.css/panels.css의 clamp(48px,5vw,80px)류와 동일 방식)을 따름 +
+      모바일/태블릿 구간까지만 대응하기로 해서 최대 1024px로 제한 */
+  --profile-h: clamp(650px, 58.125vw, 1024px);
+  /* 가로:세로 = 400:775(=16:31) 비율을 유지하며 세로값에서 가로를 역산 */
+  --profile-w: calc(var(--profile-h) * 16 / 31);
 }
 
 html,
@@ -45,9 +52,8 @@ body {
 /* 대시보드 전체 영역 */
 .dashboard {
   display: flex;
+  align-items: center;
   gap: 20px;
-  /* profile과 panels가 같은 세로 길이를 공유하도록 stretch (panels 쪽 flex:1 요소가 남는 높이를 채움) */
-  align-items: stretch;
 
   width: 100%;
   max-width: 1440px;
@@ -77,8 +83,8 @@ body {
   display: none;
 }
 
-/* 태블릿 및 모바일 화면 */
-@media (max-width: 768px) {
+/* 화면 폭이 좁아질 때 */
+@media (max-width: 1024px) {
   .dashboard {
     flex-direction: column;
 
